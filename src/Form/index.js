@@ -1,5 +1,5 @@
 import { getInput, getSelect, getTextArea, getButton } from "./formElements";
-import { createGrid } from "../utils";
+import { createGrid } from "../common/elements";
 
 class Form {
   constructor({ ...attr }) {
@@ -59,8 +59,11 @@ class Form {
       return acc;
     }, {});
   }
-  createForm(parentId) {
-    document.querySelector(`#${parentId}`).append(this.form);
+  createForm(parentId, title = "Form") {
+    let _form = document.querySelector(`#${parentId}`);
+    let _title = document.createElement("h3");
+    _title.innerHTML = title;
+    _form.append(_title, this.form);
   }
 
   init() {

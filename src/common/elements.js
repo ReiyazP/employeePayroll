@@ -60,3 +60,18 @@ export const button = (label, attributes) => {
   button.innerText = label;
   return button;
 };
+
+
+export const createGrid = (...elements) => {
+  let container = document.createElement("div");
+  container.setAttribute("class", "grid");
+  container.setAttribute("id", "form-group");
+  container.setAttribute(
+    "style",
+    `grid-template-columns: repeat(${elements?.length}, ${1}fr);`
+  );
+  container.append(...elements);
+
+  return container;
+};
+

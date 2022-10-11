@@ -59,6 +59,23 @@ textarea {
   min-height: 22px;
 }
 
+td {
+  padding: 0.7rem;
+}
+
+th {
+  text-align: left;
+  padding: 0.7rem;
+  background-color: #d5d5d5;
+}
+
+table,
+th,
+td {
+  border: 1px solid #c6c6c6;
+  border-collapse: collapse;
+}
+
 button {
   background: #03a0a0;
   color: white;

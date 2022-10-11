@@ -1,5 +1,6 @@
 import Form from "./Form";
 import { calculateSuperAnuation, calculateTax } from "./utils";
+import { createEmployeeDescription } from "./createEmployeeInfo";
 
 const form = new Form({ id: "bankForm" });
 
@@ -63,7 +64,7 @@ let isSuperIncluded = form.select(
 form.formGroup(salary, isSuperIncluded);
 const submit = form.button("submit");
 
-form.createForm("form-wrapper");
+form.createForm("form-wrapper", "Employee Payroll");
 
 submit.formField.onclick = (e) => {
   e.preventDefault();
@@ -86,5 +87,8 @@ submit.formField.onclick = (e) => {
     superTax,
     netSuper,
   };
-  console.log(salaryDetails);
+  createEmployeeDescription({
+    ...fields,
+    ...salaryDetails,
+  });
 };
