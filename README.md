@@ -24,3 +24,6 @@ $ npm run test
 * Normal information such as: `name`, `address`, `phone` to create a profile
 * `Annual Salary` for calculating the tax
 * `Superannuation Type` to determine if the superannuation is included within the salary or if it is salary + superanuation
+
+## Message from me
+I could have used simple approach in create DOM elements `Using Html insteat of JavaScript` and handling form. But i have decided to use a little complicated appraoch to demonstrate my JavaScript skills. 
