@@ -1,4 +1,11 @@
-import { div, label, input, select, textArea } from "../common/elements";
+import {
+  div,
+  label,
+  input,
+  select,
+  textArea,
+  button,
+} from "../common/elements";
 
 // create a wrapper for a form item with built in label
 export const createWrapper = (fieldLabel) => {
@@ -7,7 +14,9 @@ export const createWrapper = (fieldLabel) => {
   let _label = label({ class: "label" });
 
   _label.innerText = fieldLabel;
-  wrapper.append(_label);
+  if (fieldLabel) {
+    wrapper.append(_label);
+  }
   return wrapper;
 };
 
@@ -36,4 +45,12 @@ export const getSelect = (label, selectAttribute, options = []) => {
   let _select = select(selectAttribute)(options);
 
   return createFields(label, selectAttribute?.name, _select);
+};
+
+export const getButton = (label, buttonAttributes = []) => {
+  let formField = button(buttonAttributes);
+  formField.innerText = label;
+  let wrapper = createWrapper();
+  wrapper.append(formField);
+  return { formItem: wrapper, formField, label, name: buttonAttributes.name };
 };

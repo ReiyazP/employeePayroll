@@ -22,8 +22,8 @@ const getIndex = (sal, index) => {
 
 export const calculateTax = (sal, index, accTax = 0) => {
   let i = getIndex(sal, index);
-  let reducedSalary = sal - TAX_BRACKETS[i]?.limit + 1;
-
+  if (isNaN(TAX_BRACKETS[i]?.limit)) return 0;
+  let reducedSalary = sal - (TAX_BRACKETS[i]?.limit || 0) + 1;
   let newAccTax = accTax + reducedSalary * TAX_BRACKETS[i]?.tax;
   if (sal - reducedSalary > TAX_BRACKETS[i + 1]?.limit) {
     return calculateTax(sal - reducedSalary, i + 1, newAccTax);

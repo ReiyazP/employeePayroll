@@ -1,5 +1,4 @@
-import { getInput, getSelect, getTextArea } from "./formElements";
-import { getButton } from "./buttonElement";
+import { getInput, getSelect, getTextArea, getButton } from "./formElements";
 import { createGrid } from "../utils";
 
 class Form {
@@ -24,7 +23,6 @@ class Form {
 
     this.formItems = [...(this?.formItems || []), newField];
     if (isGroup) {
-      console.log(formItem);
       return formItem;
     }
     this.form.append(formItem);
@@ -41,21 +39,15 @@ class Form {
     return this.createFormFields(input, isGroup);
   }
 
-  select(label, option, inputAttributes, isGroup) {
-    let select = getSelect(label, option, inputAttributes);
+  select(label, inputAttributes, option, isGroup) {
+    let select = getSelect(label, inputAttributes, option);
 
     return this.createFormFields(select, isGroup);
   }
 
-  button(label, buttonAttributes) {
+  button(label, buttonAttributes, isGroup) {
     let button = getButton(label, buttonAttributes);
-    let newButton = {
-      label,
-      button,
-    };
-    this.formItems = [...(this?.formItems || []), newButton];
-    this.form.append(button);
-    return button;
+    return this.createFormFields(button, isGroup);
   }
 
   getFieldsvalue() {

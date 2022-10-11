@@ -5,11 +5,11 @@ const createElement = (tag) => {
 
     const attr = attributes || {};
     for (let key in attr) {
-      element.setAttribute("key", attr[key]);
+      element.setAttribute(key, attr[key]);
     }
     return element;
   };
-  return elementWIthAttribute();
+  return elementWIthAttribute;
 };
 
 export const div = (attributes) => {
@@ -34,10 +34,10 @@ export const option = (attributes) => {
 
 // create options for select
 export const createOptions = (data) => {
-  const options = data || [];
-  return options.map((option) => {
-    const optionElement = option({ value: option.value });
-    optionElement.innerText = option.label;
+  const _data = data || [];
+  return _data.map((opt) => {
+    const optionElement = option({ value: opt.value });
+    optionElement.innerText = opt.label;
     return optionElement;
   });
 };
@@ -45,6 +45,7 @@ export const createOptions = (data) => {
 // create select with options
 export const select = (attributes) => {
   const _select = createElement("select")(attributes);
+
   let options = (data) => {
     if (data instanceof Array && data.length > 0) {
       _select.append(...createOptions(data));
@@ -52,4 +53,10 @@ export const select = (attributes) => {
     return _select;
   };
   return options;
+};
+
+export const button = (label, attributes) => {
+  const button = createElement("button")(attributes);
+  button.innerText = label;
+  return button;
 };
