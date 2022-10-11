@@ -2,6 +2,7 @@ import Form from "./Form";
 import { calculateSuperAnuation, calculateTax } from "./utils";
 import { createEmployeeDescription } from "./createEmployeeInfo";
 
+// create instance of form
 const form = new Form({ id: "bankForm" });
 
 const firstName = form.input(
@@ -66,6 +67,7 @@ const submit = form.button("submit");
 
 form.createForm("form-wrapper", "Employee Payroll");
 
+// Create summary on submit button click by firing onclick event
 submit.formField.onclick = (e) => {
   e.preventDefault();
   const fields = form.getFieldsvalue();

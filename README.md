@@ -26,4 +26,4 @@ $ npm run test
 * `Superannuation Type` to determine if the superannuation is included within the salary or if it is salary + superanuation
 
 ## Message from me
-I could have used simple approach in create DOM elements `Using Html insteat of JavaScript` and handling form. But i have decided to use a little complicated appraoch to demonstrate my JavaScript skills. 
+I could have used simple approach in create DOM elements `Using Html instead of JavaScript` and handling form. But i have decided to use a little complicated appraoch to demonstrate my JavaScript skills. I have also deliberately choosen to leave out comments on few cases to meet the three hours deadline
